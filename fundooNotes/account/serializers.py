@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
-from .models import UserDetail
+from .models import Account
 
 class UserDetailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = UserDetail
-        fields = ('id','first_name', 'last_name' ,'userName', 'email' , 'password' , 'created')
+        model = Account
+        fields = ('id','first_name', 'last_name' ,'userName', 'email' , 'password','date_joined','last_login')

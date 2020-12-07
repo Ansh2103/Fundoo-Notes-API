@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-
-# Create your views here.
 from .serializers import UserDetailSerializer
-from .models import UserDetail
+from .models import Account
+from rest_framework.permissions import IsAuthenticated
+# views
 
 class AccountView(ModelViewSet):
-    queryset = UserDetail.objects.all()
+    permission_classes = (IsAuthenticated,)
+    
+    queryset = Account.objects.all()
     serializer_class = UserDetailSerializer
